@@ -7,8 +7,7 @@ from sqlalchemy import create_engine, MetaData, Table, select
 
 
 dir='C:\\Documents\\'
-# names=['concur_tails','site_id','sector','site_sector','min_stamp','day_stamp','tail','technology','aircards','departure_airport','arrival_airport','departure_time','departure_day','arrival_time','arrival_day','flight_number']
-# df=pd.read_csv(dir + 'atg_perf.csv',names=names,skiprows=1,parse_dates=True,dtype={'tail':np.str,'technology':np.str,'aircards':np.str,'departure_airport':np.str,'arrival_airport':np.str,'flight_number':np.str},engine='c')
+
 ds=dshape("var * {concur_tails:float64,site_id:float64,sector:float64,site_sector:string,min_stamp:datetime,day_stamp:datetime,tail:string,technology:string,aircards:string,departure_airport:string,arrival_airport:string,departure_time:datetime,departure_day:datetime,arrival_time:datetime,arrival_day:datetime,flight_number:string}")
 d=Data(dir + 'perf.csv',dshape=ds)
 print d.dshape
