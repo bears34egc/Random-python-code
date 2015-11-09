@@ -21,7 +21,7 @@ def safe_str(obj):
     except UnicodeEncodeError:
         # obj is unicode
         return unicode(obj).encode('unicode_escape')
-
+## CALL A MSSQL STORED PROCEDURE FROM PRODUCTION DB IN MSSQL. THIS .sp WILL AGGREGATE TO DAILY LEVEL, METRICS
 try:
     server = "SQLEXPRESS"
     db = "TABLEAU"
@@ -39,7 +39,8 @@ try:
     	raise
     connection.close()
     print 'stored procedure complete'
-
+    
+## MOVE THE DATA USING PANDAS TO MYSQL DB WHERE SPACE IS AVAIL, REFORMAT
     df=pd.read_sql_table("CHATS",engine,index_col=None,coerce_float=True,parse_dates=['CHAT_REQUEST_DATE'])
     print 'data read'
     print df.info()
@@ -53,7 +54,7 @@ try:
     print 'incr data transferred to mysql'
 
     print 'complete'
-
+## IN CASE OF ANY ERRORS RECEIVE EMAIL
 except Exception,err:
     import traceback
     import sys
