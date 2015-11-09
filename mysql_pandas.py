@@ -14,13 +14,6 @@ from sqlalchemy.ext.declarative import declarative_base
 
 Base = declarative_base()
 
-def safe_str(obj):
-    """ return the byte string representation of obj """
-    try:
-        return str(obj)
-    except UnicodeEncodeError:
-        # obj is unicode
-        return unicode(obj).encode('unicode_escape')
 ## CALL A MSSQL STORED PROCEDURE FROM PRODUCTION DB IN MSSQL. THIS .sp WILL AGGREGATE TO DAILY LEVEL, METRICS
 try:
     server = "SQLEXPRESS"
