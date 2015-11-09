@@ -1,3 +1,4 @@
+### This was originally created in Ipython Notebook (Jupyter) and converted to .py
 import pandas as pd
 import cx_Oracle
 from sqlalchemy import create_engine, MetaData, Table, select
